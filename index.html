@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Speck Academy</title>
+</head>
+<body>
+	<div id = "blok1">
+		<h2>Alati</h2>
+		<ul class = "noselect">
+			<p><li class = "li1" onclick = "dodaj('Čekić')">Čekić</li></p>
+			<p><li class = "li1" onclick = "dodaj('Bušilica')">Bušilica</li></p>
+			<p><li class = "li1" onclick = "dodaj('Guma')">Guma</li></p>
+			<p><li class = "li1" onclick = "dodaj('Mač')">Mač</li></p>
+		</ul>
+	</div>
+	<div id = "blok2">
+		<h2>Toolbox</h2> 
+		<ul id = "lista" class = "noselect">
+		</ul>
+	</div>
+	<span style = "position: absolute; right: 20px; bottom: 5px;">Napravio Ilija Vuk</span>
+	
+	
+	<style>
+		h2{
+			margin-left: 0.7em;
+		}
+		#blok1, #blok2   {
+			position: absolute;
+			top: 5em;
+			left: 5%;
+			height: 20em;
+			width: 35%;
+			display: inline-block;
+
+			background-color: #cccccc;
+		}
+		#blok2{
+			min-height: 20em;
+			height: auto;
+			left: 45%;
+		}
+		ul {
+			list-style-type: none;
+		}
+		li{
+			display:inline;
+			font-size: 20px;
+			margin-bottom: 1em;
+		}
+		.li1:hover{
+			cursor: pointer;
+			background-color: #4747bf
+		}
+		.li2:hover{
+			cursor: pointer;
+			background-color: rgb(255, 102, 102);
+		}
+		.noselect {
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									  supported by Chrome, Opera and Firefox */
+		}
+	</style>
+	<script>
+		function obrisi(x){
+			x.remove();
+		}
+		var lista = document.getElementById("lista");
+		function dodaj(x) {
+			var li = document.createElement("li");
+			var para = document.createElement("p");
+			
+			li.innerHTML = x;
+			li.classList.add("li2");
+			li.onclick = function(){obrisi(this)};
+			
+			lista.insertBefore(li, lista.firstChild);
+			lista.insertBefore(para, li);
+		}
+	</script>
+</body>
+</html>
